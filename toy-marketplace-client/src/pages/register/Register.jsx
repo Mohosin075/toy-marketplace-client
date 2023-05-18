@@ -15,9 +15,6 @@ const handleRegister =e=>{
     const password=form.password.value;
     const photo=form.photo.value;
 
-    const userData = {name, email, password, photo}
-    console.log(userData);
-
     createUser(email, password)
     .then(result=>{
         const createdUser = result.user;
