@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   useTitle("login");
   const { user, loginUser, googleLogin } = useContext(AuthContext);
+  console.log(user);
   //   login form
   const handleLogin = (e) => {
     e.preventDefault();

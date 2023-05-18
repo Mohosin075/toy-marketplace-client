@@ -62,7 +62,7 @@ const Footer = () => {
               <label className="input-group">
                 <textarea className="textarea textarea-bordered w-full" placeholder="Type here..." required></textarea>
               </label>
-            </div><input  className="btn btn-outline btn-secondary" type="submit" value="Submit"/>
+            </div><input  className="btn btn-outline btn-primary" type="submit" value="Submit"/>
             
           </form>
           

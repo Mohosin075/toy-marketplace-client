@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import ActiveLink from "../../../utilities/ActiveLink";
+import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const { user , logOut} = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOut();
+  }
   return (
     <div className="navbar bg-base-200 px-3 md:px-12 lg:px-16 py-5 lg:py-8">
       <div className="navbar-start">
@@ -40,13 +48,20 @@ const NavBar = () => {
             <li>
               <ActiveLink to="/blogs">Blogs</ActiveLink>
             </li>
-            <li>
-              <ActiveLink to="/login">login</ActiveLink>
-            </li>
+          <div>
+          {user && <button className="ml-5 btn" onClick={handleLogOut}>Log out</button>}
+          </div>
           </ul>
         </div>
-        <img className="w-11 h-11" src="https://i.ibb.co/3F57y83/logo111.png" alt="" />
-        <a className="btn btn-ghost normal-case text-3xl lg:text-5xl"><span className="text-blue-500 font-extrabold">Toy</span> <span className="text-pink-500 font-extrabold">G</span> alore</a>
+        <img
+          className="w-8 h-8 md:w-11 w-8 h-8 md:h-11"
+          src="https://i.ibb.co/3F57y83/logo111.png"
+          alt=""
+        />
+        <a className="btn btn-ghost normal-case text-2xl lg:text-5xl">
+          <span className="text-blue-500 font-extrabold">Toy</span>{" "}
+          <span className="text-pink-500 font-extrabold">G</span> alore
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -65,19 +80,23 @@ const NavBar = () => {
           <li>
             <ActiveLink to="/blogs">Blogs</ActiveLink>
           </li>
-          <li>
-            <ActiveLink to="/login">login</ActiveLink>
-          </li>
         </ul>
       </div>
       <div className="navbar-end">
         <div className="w-11 h-11">
-          <img
+          {user ? (
+            <div className="flex justify-center"><img
             className="w-full h-full rounded-full bg-center bg-cover bg-no-repeat cursor-pointer"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYRsKe7YCdWieiiyJ9TIizMuRRJU1JjPBzvUe6iRGWTQ&s"
+            src={user?.photoURL}
             alt=""
           />
+          
+          </div>
+          ) : (
+            <Link to="/login" className="p-2 md:p-4  font-semibold bg-blue-700 hover:bg-blue-800 text-white rounded-lg">Login</Link>
+          )}
         </div>
+        {user && <button className="ml-5 btn hidden md:block" onClick={handleLogOut}>Log out</button>}
       </div>
     </div>
   );

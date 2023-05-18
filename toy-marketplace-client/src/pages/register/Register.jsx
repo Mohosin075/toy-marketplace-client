@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 const Register = () => {
   useTitle("register");
-  const {user, createUser} = useContext(AuthContext);
+  const {user, createUser , userProfileDataUpdata} = useContext(AuthContext);
 //   register form
 const handleRegister =e=>{
     e.preventDefault();
@@ -20,6 +20,7 @@ const handleRegister =e=>{
         const createdUser = result.user;
         console.log(createdUser);
         toast.success("User Successfully Added!")
+        userProfileDataUpdata(name, photo)
     })
     .catch(err=>{
         console.log(err);
