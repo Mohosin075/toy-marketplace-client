@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
@@ -19,6 +19,12 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    // google login
+    const googleProvider = new GoogleAuthProvider();
+    const googleLogin = () =>{
+        return signInWithPopup(auth, googleProvider)
+    }
+
 
 
     const user = {name : 'md mohosin', email : 'mohosin@ali.com'}
@@ -27,6 +33,7 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         loginUser, 
+        googleLogin,
 
     }
     return (
