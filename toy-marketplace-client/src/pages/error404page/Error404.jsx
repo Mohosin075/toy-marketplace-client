@@ -17,7 +17,7 @@ const Error404 = () => {
             <p className="mb-8 text-center text-gray-500 md:text-lg">
               The page you’re looking for doesn’t exist.
             </p>
-            <button onClick={handleGoBack} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">back to home</button>
+            <button onClick={handleGoBack} className="btn btn-error btn-outline btn-xs sm:btn-sm md:btn-md lg:btn-lg">back to home</button>
           </div>
           <div className="mt-4 flex justify-center">
             <img
