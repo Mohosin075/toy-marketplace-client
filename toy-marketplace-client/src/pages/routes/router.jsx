@@ -10,11 +10,13 @@ import AllToys from "../allToys/AllToys";
 import MyToys from "../myToys/MyToys";
 import Blogs from "../blogs/Blogs";
 import AddAToys from "../addAToys/AddAToys";
+import Error404 from "../error404page/Error404";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayOut></MainLayOut>,
+      errorElement : <Error404></Error404>,
       children  : [
         {
             path : '/',
