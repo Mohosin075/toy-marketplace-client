@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 const Register = () => {
   useTitle("register");
-  const {user} = useContext(AuthContext);
-  console.log(user);
+  const {user, createUser} = useContext(AuthContext);
 //   register form
 const handleRegister =e=>{
     e.preventDefault();
@@ -17,6 +17,17 @@ const handleRegister =e=>{
 
     const userData = {name, email, password, photo}
     console.log(userData);
+
+    createUser(email, password)
+    .then(result=>{
+        const createdUser = result.user;
+        console.log(createdUser);
+        toast.success("User Successfully Added!")
+    })
+    .catch(err=>{
+        console.log(err);
+        toast.error(err.message)
+    })
 }
   return (
     <div className="hero my-12 md:my-20 w-full">

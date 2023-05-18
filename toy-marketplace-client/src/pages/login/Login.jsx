@@ -6,7 +6,6 @@ import { AuthContext } from "../provider/AuthProvider";
 const Login = () => {
   useTitle("login");
   const  {user} = useContext(AuthContext)
-  console.log(user);
   //   login form
 const handleLogin =e=>{
     e.preventDefault();
