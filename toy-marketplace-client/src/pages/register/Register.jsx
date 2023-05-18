@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-
 const Register = () => {
   useTitle("register");
   const {user} = useContext(AuthContext);
