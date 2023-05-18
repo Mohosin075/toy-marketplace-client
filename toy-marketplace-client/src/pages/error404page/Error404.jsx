@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 const Error404 = () => {
-
+  useTitle('Error : 404')
     const navigate= useNavigate();
     const handleGoBack=()=>{
         navigate(-1)
