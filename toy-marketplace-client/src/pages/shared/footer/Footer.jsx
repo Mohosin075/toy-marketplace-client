@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Footer = () => {
   return (
     <div>
-         <footer className="px-10 pb-5 bg-base-200 text-xs md:flex justify-between items-center pt-6 space-y-4">
+         <footer className="px-10 md:px-40 pb-5 bg-base-200 text-xs md:flex justify-between items-center pt-6 space-y-4">
         <div>
           <div className="space-y-5">
             <div className="flex">
@@ -68,7 +68,7 @@ const Footer = () => {
           
         </div>
       </footer>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer px-10 md:px-40 py-10 bg-base-200 text-base-content">
         <div>
           <span className="footer-title">Quick Links</span>
           <Link className="link link-hover" to="/allToys">
