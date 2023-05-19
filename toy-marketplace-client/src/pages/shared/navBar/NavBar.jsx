@@ -39,12 +39,12 @@ const NavBar = () => {
             <li>
               <ActiveLink to="/allToys">All Toys</ActiveLink>
             </li>
-            <li>
+            {user && <><li>
               <ActiveLink to="/myToys">My Toys</ActiveLink>
             </li>
             <li>
               <ActiveLink to="/addToys">Add A Toy</ActiveLink>
-            </li>
+            </li></>}
             <li>
               <ActiveLink to="/blogs">Blogs</ActiveLink>
             </li>
