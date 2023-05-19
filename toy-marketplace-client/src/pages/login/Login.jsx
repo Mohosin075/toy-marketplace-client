@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import useTitle from "../hooks/useTitle";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   useTitle("login");
   const { user, loginUser, googleLogin } = useContext(AuthContext);
+  const [show, setShow] = useState(false)
   console.log(user);
   //   login form
   const handleLogin = (e) => {
@@ -18,7 +19,9 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
-        toast.success("user login successfully!");
+        toast.success("user login successfully!", {
+          position: toast.POSITION.TOP_CENTER
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -30,7 +33,9 @@ const Login = () => {
   const handleGoogleLogin = () =>{
     googleLogin().then(result=>{
         console.log(result.user);
-        toast.success("user login successfully!")
+        toast.success("user login successfully!", {
+          position: toast.POSITION.TOP_CENTER
+        })
     })
     .catch(err=>{
         console.log(err);
@@ -64,15 +69,18 @@ const Login = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password :</span>
+                <span className="label-text">Password</span>
               </label>
-              <input
-                name="password"
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
+              <div className="flex items-center justify-between">
+                <input
+                  type={show ? 'text' : 'password'}
+                  placeholder="password"
+                  name="password"
+                  className="input input-bordered relative w-full"
+                  required
+                />
+                <span className="absolute right-10 p-2 cursor-pointer" onClick={()=>setShow(!show)}>{show ? 'hide' : 'show'}</span>
+              </div>
             </div>
             <div className="form-control mt-6">
               <input className="btn btn-primary btn-outline" type="submit" value="Login" />

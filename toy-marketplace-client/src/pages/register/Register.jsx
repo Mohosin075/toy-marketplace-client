@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 const Register = () => {
   useTitle("register");
   const {user, createUser , userProfileDataUpdata} = useContext(AuthContext);
+  const [show, setShow] = useState(false)
 //   register form
 const handleRegister =e=>{
     e.preventDefault();
@@ -15,16 +16,44 @@ const handleRegister =e=>{
     const password=form.password.value;
     const photo=form.photo.value;
 
+    if(password.length < 8){
+      toast.error("password less then 8 character!", {
+        position: toast.POSITION.TOP_CENTER
+      })
+      return;
+    }
+
+    if (!/(?=.*?[A-Z])/.test(password)) {
+      toast.error("At lest one uppercase!", {
+        position: toast.POSITION.TOP_CENTER
+      })
+      return;
+    } else if (!/(?=.*[0-9])/.test(password)) {
+      toast.error("At lest one number!", {
+        position: toast.POSITION.TOP_CENTER
+      })
+      return;
+    } else if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
+      toast.error("At lest one special carecter!", {
+        position: toast.POSITION.TOP_CENTER
+      })
+      return;
+    }
+
     createUser(email, password)
     .then(result=>{
         const createdUser = result.user;
         console.log(createdUser);
-        toast.success("User Successfully Added!")
+        toast.success("User Successfully Added!", {
+          position: toast.POSITION.TOP_CENTER
+        })
         userProfileDataUpdata(name, photo)
     })
     .catch(err=>{
         console.log(err);
-        toast.error(err.message)
+        toast.error(err.message, {
+          position: toast.POSITION.TOP_CENTER
+        })
     })
 }
   return (
@@ -61,15 +90,18 @@ const handleRegister =e=>{
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password :</span>
+                <span className="label-text">Password</span>
               </label>
-              <input
-                name="password"
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
+              <div className="flex items-center justify-between">
+                <input
+                  type={show ? 'text' : 'password'}
+                  placeholder="password"
+                  name="password"
+                  className="input input-bordered relative w-full"
+                  required
+                />
+                <span className="absolute right-10 p-2 cursor-pointer" onClick={()=>setShow(!show)}>{show ? 'hide' : 'show'}</span>
+              </div>
             </div>
             <div className="form-control">
               <label className="label">

@@ -49,7 +49,7 @@ const NavBar = () => {
               <ActiveLink to="/blogs">Blogs</ActiveLink>
             </li>
           <div>
-          {user && <button className="ml-5 btn" onClick={handleLogOut}>Log out</button>}
+          {user && <button className="ml-5 btn bg-blue-700 hover:bg-blue-800 text-white" onClick={handleLogOut}>Log out</button>}
           </div>
           </ul>
         </div>
@@ -71,12 +71,12 @@ const NavBar = () => {
           <li>
             <ActiveLink to="/allToys">All Toys</ActiveLink>
           </li>
-          <li>
+          {user && <> <li>
             <ActiveLink to="/myToys">My Toys</ActiveLink>
           </li>
           <li>
             <ActiveLink to="/addToys">Add A Toy</ActiveLink>
-          </li>
+          </li> </>}
           <li>
             <ActiveLink to="/blogs">Blogs</ActiveLink>
           </li>
@@ -85,7 +85,7 @@ const NavBar = () => {
       <div className="navbar-end">
         <div className="w-11 h-11">
           {user ? (
-            <div className="flex justify-center"><img
+            <div className="flex justify-center tooltip" data-tip={user?.displayName}><img
             className="w-full h-full rounded-full bg-center bg-cover bg-no-repeat cursor-pointer"
             src={user?.photoURL}
             alt=""
@@ -93,10 +93,10 @@ const NavBar = () => {
           
           </div>
           ) : (
-            <Link to="/login" className="p-2 md:p-4  font-semibold bg-blue-700 hover:bg-blue-800 text-white rounded-lg">Login</Link>
+            <Link to="/login" className="p-2 md:p-4 inline-block  font-semibold bg-blue-700 hover:bg-blue-800 text-white rounded-lg">Login</Link>
           )}
         </div>
-        {user && <button className="ml-5 btn hidden md:block" onClick={handleLogOut}>Log out</button>}
+        {user && <button className="ml-5 btn bg-blue-700 hover:bg-blue-800 text-white hidden md:block" onClick={handleLogOut}>Log out</button>}
       </div>
     </div>
   );
