@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import useTitle from "../hooks/useTitle";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -8,6 +8,12 @@ const Login = () => {
   useTitle("login");
   const { user, loginUser, googleLogin } = useContext(AuthContext);
   const [show, setShow] = useState(false)
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
   console.log(user);
   //   login form
   const handleLogin = (e) => {
@@ -22,6 +28,7 @@ const Login = () => {
         toast.success("user login successfully!", {
           position: toast.POSITION.TOP_CENTER
         });
+        navigate(from)
       })
       .catch((err) => {
         console.log(err);
@@ -36,6 +43,7 @@ const Login = () => {
         toast.success("user login successfully!", {
           position: toast.POSITION.TOP_CENTER
         })
+        navigate(from)
     })
     .catch(err=>{
         console.log(err);

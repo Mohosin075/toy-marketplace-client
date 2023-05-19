@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 const ShowCategoryData = ({ cata }) => {
-  const { price, rating, name, picture } = cata;
+  const {_id, price, rating, name, picture } = cata;
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
@@ -12,7 +14,7 @@ const ShowCategoryData = ({ cata }) => {
         <p>Price : {price}</p>
         <p>Rating : {rating}</p>
         <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn btn-primary" ><Link to={`/shopDetails/${_id}`}>View Details</Link></button>
         </div>
       </div>
     </div>

@@ -11,6 +11,8 @@ import MyToys from "../myToys/MyToys";
 import Blogs from "../blogs/Blogs";
 import AddAToys from "../addAToys/AddAToys";
 import Error404 from "../error404page/Error404";
+import ShopCardDetails from "../shopCardDetails/ShopCardDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +51,11 @@ const router = createBrowserRouter([
         {
             path : '/login',
             element : <Login></Login>
+        },
+        {
+            path : '/shopDetails/:id',
+            element : <PrivateRoute><ShopCardDetails></ShopCardDetails></PrivateRoute>,
+            loader : ({params})=> fetch(`http://localhost:5000/shopDetails/${params.id}`)
         },
       ]
     },
