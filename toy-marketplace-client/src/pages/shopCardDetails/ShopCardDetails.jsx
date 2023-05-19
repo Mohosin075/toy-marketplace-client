@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 
 const ShopCardDetails = () => {
+  useTitle('shop category')
   const data = useLoaderData();
   const { details, price, rating, name, picture } = data;
   return (
@@ -9,12 +11,13 @@ const ShopCardDetails = () => {
         <figure className="md:w-1/2">
           <img src={picture} alt="Album"  className="w-full"/>
         </figure>
-        <div className="card-body md:w-1/2">
+        <div className="md:w-1/2 flex justify-start items-center">
+        <div className="space-y-6 p-8 ">
           <h2 className="card-title font-semibold">{name}</h2>
           <p>Price :{price}</p>
           <p>Rating : {rating}</p>
-          <p>Details : </p>
-          <p className="text-xs md:text-lg">{details}</p>
+          <p className="text-xs md:text-lg">Details : {details}</p>
+        </div>
         </div>
       </div>
     </div>

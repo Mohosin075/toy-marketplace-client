@@ -8,7 +8,7 @@ const AddAToys = () => {
     e.preventDefault();
     const form = e.target;
 
-    const photo = form.photo.value;
+    const picture = form.picture.value;
     const name = form.name.value;
     const category = form.category.value;
     const price = form.price.value;
@@ -19,7 +19,7 @@ const AddAToys = () => {
     const email = user.email;
 
     const info = {
-      photo,
+        picture,
       name,
       category,
       price,
@@ -30,6 +30,20 @@ const AddAToys = () => {
       email,
     };
     console.log(info);
+
+
+    fetch('http://localhost:5000/addAToy', {
+        method : 'POST',
+        headers : {
+            'content-type' : 'application/json'
+        },
+        body : JSON.stringify(info)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+    })
+
   };
 
   return (
@@ -43,7 +57,7 @@ const AddAToys = () => {
                 <span className="label-text">Photo URL :</span>
               </label>
               <input
-                name="photo"
+                name="picture"
                 type="text"
                 placeholder="Photo URL"
                 className="input input-bordered"
