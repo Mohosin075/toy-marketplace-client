@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from './../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const ShowCategoryData = ({ cata }) => {
+  const {user} = useContext(AuthContext);
   const {_id, price, rating, name, picture } = cata;
   return (
     <div className="card w-full bg-base-100 shadow-xl">
@@ -14,7 +18,7 @@ const ShowCategoryData = ({ cata }) => {
         <p>Price : {price}</p>
         <p>Rating : {rating}</p>
         <div className="card-actions">
-          <button className="btn btn-primary" ><Link to={`/shopDetails/${_id}`}>View Details</Link></button>
+          <button className="btn btn-primary" onClick={()=> user ? <></> : toast.warn("Login first!") }><Link to={`/shopDetails/${_id}`}>View Details</Link></button>
         </div>
       </div>
     </div>
