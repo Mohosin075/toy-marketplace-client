@@ -8,17 +8,38 @@ const MyToys = () => {
   useTitle("my toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [active, setActive] = useState(' ');
 
   console.log(myToys);
 
   useEffect(() => {
-    fetch(`https://toy-marketplace-server-steel.vercel.app/myToys/${user?.email}`)
+    fetch(`http://localhost:5000/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
       });
-  }, [user]);
+  }, [user, active]);
 
+  
+  const handleDisending = () => {
+    
+    fetch(`http://localhost:5000/myToysAssending/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyToys(data);
+        setActive("assending")
+      });
+  };
+
+  const handleAssending = () => {
+    
+    fetch(`http://localhost:5000/myToysDssending/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyToys(data);
+        setActive("dissending")
+      });
+  };
   const handleDelete = (id) => {
     console.log(id);
 
@@ -32,7 +53,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://toy-marketplace-server-steel.vercel.app/myToys/toyRemove/${id}`, {
+        fetch(`http://localhost:5000/myToys/toyRemove/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -56,8 +77,27 @@ const MyToys = () => {
   return (
     <div className="px-3 md:px-12 lg:px-16 my-20">
       <h2 className="text-5xl font-bold text-center mb-8">My Toys</h2>
+      <div className="text-center flex justify-center items-center">
+       <span className="font-bold mr-5">Sort By : </span>
+        <div className="tabs tabs-boxed">
+          <a
+            onClick={() => handleDisending()}
+            className={`tab font-bold ${active === "assending" ? "tab-active" : ""}`}
+          >
+            descending 
+          </a>
+          <a
+            onClick={() => handleAssending()}
+            className={`tab font-bold ${
+              active === "dissending" ? "tab-active" : ""
+            }`}
+          >
+            ascending 
+          </a>
+        </div>
+      </div>
       {myToys.length < 1 ? <div className="text-center"><h2 className="text-5xl text-red-500">No Data Added </h2><br /> <Link to="/addToys" className="btn bg-blue-700 hover:bg-blue-800">Added Toys</Link></div> :<div className="overflow-x-auto">
-        <table className="table w-full">
+        <table className="table w-full mt-10">
           {/* head */}
           <thead>
             <tr>
