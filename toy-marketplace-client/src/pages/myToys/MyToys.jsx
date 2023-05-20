@@ -13,7 +13,6 @@ const MyToys = () => {
     fetch(`http://localhost:5000/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setMyToys(data);
       });
   }, [user]);
@@ -74,7 +73,6 @@ const MyToys = () => {
             {/* row 3 */}
 
             {myToys.map((toy, i) => {
-              console.log(toy);
               return (
                 <tr className="hover" key={toy._id}>
                   <th>{i + 1}</th>
@@ -92,14 +90,11 @@ const MyToys = () => {
                     </Link>
                   </td>
                   <td>
-                    <Link
-                      className="btn bg-blue-600 border-0 hover:bg-blue-400"
-                      to={`/shopDetails/${toy._id}`}
-                    >
+                    {/* The button to open modal */}
+                    <label className="btn bg-blue-600 border-0 hover:bg-blue-400">
                       update
-                    </Link>
+                    </label>
                   </td>
-
                   <td>
                     <button
                       onClick={() => handleDelete(toy._id)}

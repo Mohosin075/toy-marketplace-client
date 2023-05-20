@@ -13,6 +13,7 @@ import AddAToys from "../addAToys/AddAToys";
 import Error404 from "../error404page/Error404";
 import ShopCardDetails from "../shopCardDetails/ShopCardDetails";
 import PrivateRoute from "./PrivateRoute";
+import UpdateToy from "../updateToys/UpdateToy";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         {
             path : '/myToys',
             element : <PrivateRoute><MyToys></MyToys></PrivateRoute>
+        },
+        {
+            path : '/updateToy/:id',
+            element : <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
         },
         {
             path : '/addToys',

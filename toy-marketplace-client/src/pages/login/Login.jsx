@@ -38,7 +38,12 @@ const Login = () => {
   };
 
   const handleForgetPassword = () => {
-    console.log(fEmail);
+    if(fEmail === ""){
+      toast.error("provide email!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return
+    }
     forgetPassword(fEmail).then(() => {
       toast.success("check your email and reset password!", {
         position: toast.POSITION.TOP_CENTER,
