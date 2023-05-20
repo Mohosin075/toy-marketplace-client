@@ -35,7 +35,7 @@ const AllToys = () => {
                     <td>{toy?.category}</td>
                     <td>{toy?.price}</td>
                     <td>{toy?.quentity}</td>
-                    <td><button className="btn bg-blue-500"><Link  to={`/shopDetails/${toy._id}`}>Veiw Details</Link></button></td>
+                    <td><Link className="btn bg-blue-500" to={`/shopDetails/${toy._id}`}>Veiw Details</Link></td>
                   </tr>
               );
             })}
