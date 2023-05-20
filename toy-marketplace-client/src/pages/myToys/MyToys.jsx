@@ -9,6 +9,8 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
 
+  console.log(myToys);
+
   useEffect(() => {
     fetch(`https://toy-marketplace-server-steel.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
@@ -53,7 +55,8 @@ const MyToys = () => {
 
   return (
     <div className="px-3 md:px-12 lg:px-16 my-20">
-      <div className="overflow-x-auto">
+      <h2 className="text-5xl font-bold text-center mb-8">My Toys</h2>
+      {myToys.length < 1 ? <div className="text-center"><h2 className="text-5xl text-red-500">No Data Added </h2><br /> <Link to="/addToys" className="btn bg-blue-700 hover:bg-blue-800">Added Toys</Link></div> :<div className="overflow-x-auto">
         <table className="table w-full">
           {/* head */}
           <thead>
@@ -61,6 +64,7 @@ const MyToys = () => {
               <th></th>
               <th>Name</th>
               <th>Toy Name</th>
+              <th>images</th>
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quentity</th>
@@ -78,6 +82,7 @@ const MyToys = () => {
                   <th>{i + 1}</th>
                   <td>{toy?.sellerName}</td>
                   <td>{toy?.name}</td>
+                  <td><img className="w-10 h-10" src={toy?.picture} alt="" /></td>
                   <td>{toy?.category}</td>
                   <td>{toy?.price}</td>
                   <td>{toy?.quentity}</td>
@@ -121,7 +126,7 @@ const MyToys = () => {
             })}
           </tbody>
         </table>
-      </div>
+      </div>}
     </div>
   );
 };

@@ -95,7 +95,7 @@ const AddAToys = () => {
                   required
                 >
                   <option disabled selected>
-                    *
+                    category
                   </option>
                   <option>bear</option>
                   <option>dogs</option>
@@ -110,12 +110,12 @@ const AddAToys = () => {
             <div className="md:flex justify-between gap-5">
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Price :</span>
+                  <span className="label-text">Price $:</span>
                 </label>
                 <input
                   name="price"
                   type="number"
-                  placeholder="price"
+                  placeholder="price $"
                   className="input input-bordered"
                   required
                 />

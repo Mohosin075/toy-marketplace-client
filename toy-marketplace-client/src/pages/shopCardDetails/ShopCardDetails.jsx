@@ -13,7 +13,7 @@ const ShopCardDetails = () => {
         </figure>
         <div className="md:w-1/2 flex justify-start items-center">
         <div className="space-y-6 p-8 ">
-          <h2 className="card-title font-semibold">{name}</h2>
+          <h2 className="text-5xl font-bold">{name}</h2>
           <p>Price :{price}</p>
           <p>Available Quantity : {quentity}</p> 
           <p>Rating : {rating}</p> 
