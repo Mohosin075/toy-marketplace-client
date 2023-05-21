@@ -40,10 +40,10 @@ export default function App() {
   )
 
   return (
-    <div className="mb-16 w-full flex flex-col justify-center items-center ">
+    <div className="py-16 w-full flex flex-col  bg-base-200  justify-center items-center ">
       <div className="text-center">
       <h2 className="text-2xl md:text-5xl mb-5  font-semibold">Animal Toy Accessories</h2>
-      <p className="text-xs md:text-sm px-4 md:w-2/3 mx-auto mb-8 md: md:mb-16">Are you a passionate animal lover? Do you enjoy collecting animal toys or playing with them? If so, we have exciting news for you! We are thrilled to present a wide range of animal toy accessories that will take your playtime experience to the next level. Whether you're a child or an adult, these accessories are designed to add fun, creativity, and realism to your animal toy collection. Let's explore some of the fantastic options available:</p>
+      <p className="text-xs md:text-sm px-4 md:w-2/3 mx-auto mb-8 md: md:mb-16">Are you a passionate animal lover? Do you enjoy collecting animal toys or playing with them? If so, we have exciting news for you! We are thrilled to present a wide range of animal toy accessories that will take your playtime experience to the next level. Whether youre a child or an adult, these accessories are designed to add fun, creativity, and realism to your animal toy collection. Lets explore some of the fantastic options available:</p>
       </div>
       <div className="wrapper">
       <div className="scene">
