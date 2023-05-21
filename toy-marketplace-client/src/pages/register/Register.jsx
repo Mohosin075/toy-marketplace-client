@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -8,6 +8,8 @@ const Register = () => {
   useTitle("register");
   const {user, createUser , userProfileDataUpdata} = useContext(AuthContext);
   const [show, setShow] = useState(false)
+  const location = useLocation();
+  const navigate = useNavigate();
 //   register form
 const handleRegister =e=>{
     e.preventDefault();
@@ -16,7 +18,7 @@ const handleRegister =e=>{
     const email=form.email.value;
     const password=form.password.value;
     const photo=form.photo.value;
-
+   
     if(password.length < 8){
       toast.error("password less then 8 character!", {
         position: toast.POSITION.TOP_CENTER
@@ -41,6 +43,8 @@ const handleRegister =e=>{
       return;
     }
 
+    const from = location.state?.from?.pathname || "/";
+
     createUser(email, password)
     .then(result=>{
         const createdUser = result.user;
@@ -49,6 +53,7 @@ const handleRegister =e=>{
           position: toast.POSITION.TOP_CENTER
         })
         userProfileDataUpdata(name, photo)
+        navigate(from)
     })
     .catch(err=>{
         console.log(err);

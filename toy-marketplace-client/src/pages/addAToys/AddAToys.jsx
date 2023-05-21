@@ -12,12 +12,16 @@ const AddAToys = () => {
     const picture = form.picture.value;
     const name = form.name.value;
     const category = form.category.value;
-    const price = form.price.value;
+    const price = parseInt(form.price.value);
     const rating = form.rating.value;
     const quentity = form.quentity.value;
     const details = form.details.value;
     const sellerName = user.displayName;
     const email = user.email;
+
+
+    console.log(price);
+    console.log(typeof(price));
 
     const info = {
         picture,

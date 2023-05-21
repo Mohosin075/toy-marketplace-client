@@ -18,7 +18,7 @@ const MyToys = () => {
       .then((data) => {
         setMyToys(data);
       });
-  }, [user, active]);
+  }, [user]);
 
   
   const handleDisending = () => {
@@ -77,8 +77,8 @@ const MyToys = () => {
   return (
     <div className="px-3 md:px-12 lg:px-16 my-20">
       <h2 className="text-5xl font-bold text-center mb-8">My Toys</h2>
-      <div className="text-center flex justify-center items-center">
-       <span className="font-bold mr-5">Sort By : </span>
+      {myToys.length < 1 ? <></> : <div className="text-center flex justify-center items-center">
+       <span className="font-bold mr-5">Sort Price By : </span>
         <div className="tabs tabs-boxed">
           <a
             onClick={() => handleDisending()}
@@ -95,7 +95,7 @@ const MyToys = () => {
             ascending 
           </a>
         </div>
-      </div>
+      </div>}
       {myToys.length < 1 ? <div className="text-center"><h2 className="text-5xl text-red-500">No Data Added </h2><br /> <Link to="/addToys" className="btn bg-blue-700 hover:bg-blue-800">Added Toys</Link></div> :<div className="overflow-x-auto">
         <table className="table w-full mt-10">
           {/* head */}
