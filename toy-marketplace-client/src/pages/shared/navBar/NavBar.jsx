@@ -54,7 +54,7 @@ const NavBar = () => {
           </ul>
         </div>
         <img
-          className="w-8 h-8 md:w-11 w-8 h-8 md:h-11"
+          className="w-8 h-8 md:w-11 md:h-11"
           src="https://i.ibb.co/3F57y83/logo111.png"
           alt=""
         />
@@ -83,10 +83,9 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="w-11 h-11">
           {user ? (
             <div className="flex justify-center tooltip" data-tip={user?.displayName}><img
-            className="w-full h-full rounded-full bg-center bg-cover bg-no-repeat cursor-pointer"
+            className="w-1/2 h-1/2 rounded-full bg-center bg-cover bg-no-repeat cursor-pointer"
             src={user?.photoURL}
             alt=""
           />
@@ -98,7 +97,6 @@ const NavBar = () => {
         </div>
         {user && <button className="ml-5 btn bg-blue-700 hover:bg-blue-800 text-white hidden md:block" onClick={handleLogOut}>Log out</button>}
       </div>
-    </div>
   );
 };
 
