@@ -117,6 +117,7 @@ const AddAToys = () => {
                   <span className="label-text">Price $:</span>
                 </label>
                 <input
+                min={5}
                   name="price"
                   type="number"
                   placeholder="price $"
@@ -145,6 +146,7 @@ const AddAToys = () => {
                   <span className="label-text">quentity :</span>
                 </label>
                 <input
+                min={1}
                   name="quentity"
                   type="number"
                   placeholder="quentity"
