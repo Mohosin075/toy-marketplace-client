@@ -50,7 +50,7 @@ const SupportInfo = () => {
         <h2 className="text-center text-xl mt-10 md:text-3xl">Have a question? Well, we’ve got some answers.</h2>
         <button onClick={()=>toast.warn("help center is not available! try after few days!", {
           position: toast.POSITION.TOP_CENTER,
-        })} className="py-3 px-8 border font-bold text-lg  rounded-full border-blue-600 mt-8 border-3 hover:bg-blue-700 hover:border-0 hover:text-white">Go to Help Center</button>
+        })} className="py-3 px-8 border font-bold text-lg  rounded-full border-blue-600 mt-8 border-3 hover:bg-blue-700  hover:text-white">Go to Help Center</button>
         </div>
       </div>
     );

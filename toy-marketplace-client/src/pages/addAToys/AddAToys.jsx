@@ -70,7 +70,7 @@ const AddAToys = () => {
               </label>
               <input
                 name="picture"
-                type="text"
+                type="url"
                 placeholder="Photo URL"
                 className="input input-bordered"
                 required
