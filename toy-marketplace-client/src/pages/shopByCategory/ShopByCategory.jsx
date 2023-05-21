@@ -7,7 +7,7 @@ const ShopByCategory = () => {
   const [catData, setCatData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://toy-marketplace-server-steel.vercel.app/category/${active}`)
+    fetch(`https://toy-marketplace-server-production.up.railway.app/category/${active}`)
       .then((res) => res.json())
       .then((data) => {
         setCatData(data);

@@ -14,7 +14,7 @@ const Footer = () => {
                 src="https://i.ibb.co/3F57y83/logo111.png"
                 alt=""
               />
-              <a className="btn btn-ghost normal-case tex-xl md:text-3xl lg:text-5xl">
+              <a className="btn btn-ghost normal-case text-2xl md:text-3xl lg:text-5xl">
                 <span className="text-blue-500 font-extrabold">Toy</span>{" "}
                 <span className="text-pink-500 font-extrabold">G</span> alore{" "}
                 <br />
@@ -49,7 +49,7 @@ const Footer = () => {
               <label className="input-group">
                 <span>Email</span>
                 <input
-                  type="password"
+                  type="email"
                   className="input input-bordered input-sm"
                   required
                 />

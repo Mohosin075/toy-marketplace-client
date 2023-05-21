@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         {
             path : '/allToys',
             element : <AllToys></AllToys>,
-            loader : ()=> fetch('https://toy-marketplace-server-steel.vercel.app/allToys')
+            loader : ()=> fetch('https://toy-marketplace-server-production.up.railway.app/allToys')
         },
         {
             path : '/myToys',
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         },
         {
             path : '/blogs',
-            // element : <Blogs></Blogs>
+            element : <Blogs></Blogs>
         },
         {
             path : '/login',
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         {
             path : '/shopDetails/:id',
             element : <PrivateRoute><ShopCardDetails></ShopCardDetails></PrivateRoute>,
-            loader : ({params})=> fetch(`https://toy-marketplace-server-steel.vercel.app/shopDetails/${params.id}`)
+            loader : ({params})=> fetch(`https://toy-marketplace-server-production.up.railway.app/shopDetails/${params.id}`)
         },
       ]
     },

@@ -12,7 +12,7 @@ const AllToys = () => {
   const [allToys, setAllToys] = useState(loadedAllToys)
   const handleSearch =(e)=>{
     e.preventDefault();
-    fetch(`https://toy-marketplace-server-steel.vercel.app/searchByName/${searchText}`)
+    fetch(`https://toy-marketplace-server-production.up.railway.app/searchByName/${searchText}`)
     .then(res=>res.json())
     .then(data=>{
       setAllToys(data);

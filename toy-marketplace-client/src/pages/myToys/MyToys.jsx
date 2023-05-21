@@ -12,7 +12,7 @@ const MyToys = () => {
 
 
   useEffect(() => {
-    fetch(`https://toy-marketplace-server-steel.vercel.app/myToys/${user?.email}`)
+    fetch(`https://toy-marketplace-server-production.up.railway.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -22,7 +22,7 @@ const MyToys = () => {
   
   const  handleAssending= () => {
     
-    fetch(`https://toy-marketplace-server-steel.vercel.app/myToysAssending/${user?.email}`)
+    fetch(`https://toy-marketplace-server-production.up.railway.app/myToysAssending/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -32,7 +32,7 @@ const MyToys = () => {
 
   const handleDisending = () => {
     
-    fetch(`https://toy-marketplace-server-steel.vercel.app/myToysDssending/${user?.email}`)
+    fetch(`https://toy-marketplace-server-production.up.railway.app/myToysDssending/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -52,7 +52,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://toy-marketplace-server-steel.vercel.app/myToys/toyRemove/${id}`, {
+        fetch(`https://toy-marketplace-server-production.up.railway.app/myToys/toyRemove/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

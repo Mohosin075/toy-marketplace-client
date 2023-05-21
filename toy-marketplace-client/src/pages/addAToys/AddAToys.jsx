@@ -37,7 +37,7 @@ const AddAToys = () => {
     console.log(info);
 
 
-    fetch('https://toy-marketplace-server-steel.vercel.app/addAToy', {
+    fetch('https://toy-marketplace-server-production.up.railway.app/addAToy', {
         method : 'POST',
         headers : {
             'content-type' : 'application/json'
