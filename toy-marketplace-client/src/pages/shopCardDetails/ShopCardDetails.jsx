@@ -17,7 +17,7 @@ const ShopCardDetails = () => {
           <h2 className="text-5xl font-bold"> {name}</h2>
           <p className="text-lg font-extrabold">Seller : {sellerName}</p>
           <p>Email : {email}</p>
-          <p className="font-semibold text-blue-500">Price : {price}</p>
+          <p className="font-semibold text-blue-500">Price : $ {price}</p>
           <p>Available Quantity : {quentity}</p> 
           <p>Rating : {rating}</p> 
           <p className="text-xs md:text-lg">Details : {details}</p>

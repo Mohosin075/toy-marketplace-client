@@ -20,7 +20,7 @@ const MyToys = () => {
   }, [user]);
 
   
-  const handleDisending = () => {
+  const  handleAssending= () => {
     
     fetch(`http://localhost:5000/myToysAssending/${user?.email}`)
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const MyToys = () => {
       });
   };
 
-  const handleAssending = () => {
+  const handleDisending = () => {
     
     fetch(`http://localhost:5000/myToysDssending/${user?.email}`)
       .then((res) => res.json())
@@ -81,21 +81,21 @@ const MyToys = () => {
         <div className="tabs tabs-boxed">
           <a
             onClick={() => handleDisending()}
-            className={`tab font-bold ${active === "assending" ? "tab-active" : ""}`}
+            className={`tab font-bold ${active === "dissending" ? "tab-active" : ""}`}
           >
             descending 
           </a>
           <a
             onClick={() => handleAssending()}
             className={`tab font-bold ${
-              active === "dissending" ? "tab-active" : ""
+              active === "assending" ? "tab-active" : ""
             }`}
           >
             ascending 
           </a>
         </div>
       </div>}
-      {myToys.length < 1 ? <div className="text-center"><h2 className="text-5xl text-red-500">No Data Added </h2><br /> <Link to="/addToys" className="btn bg-blue-700 hover:bg-blue-800">Added Toys</Link></div> :<div className="overflow-x-auto">
+      {myToys.length < 1 ? <div className="text-center"><h2 className="text-5xl text-red-500">... </h2><br /> <Link to="/addToys" className="btn bg-blue-700 hover:bg-blue-800">Added Toys</Link></div> :<div className="overflow-x-auto">
         <table className="table w-full mt-10">
           {/* head */}
           <thead>
@@ -123,7 +123,7 @@ const MyToys = () => {
                   <td>{toy?.name}</td>
                   <td><img className="w-10 h-10" src={toy?.picture} alt="" /></td>
                   <td>{toy?.category}</td>
-                  <td>{toy?.price}</td>
+                  <td>$ {toy?.price}</td>
                   <td>{toy?.quentity}</td>
                   <td>
                     <Link
@@ -135,9 +135,9 @@ const MyToys = () => {
                   </td>
                   <td>
                     {/* The button to open modal */}
-                    <label className="btn bg-blue-600 border-0 hover:bg-blue-400">
+                    <Link to={`/update/${toy._id}`} className="btn bg-blue-600 border-0 hover:bg-blue-400">
                       update
-                    </label>
+                    </Link>
                   </td>
                   <td>
                     <button
