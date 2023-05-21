@@ -19,6 +19,10 @@ const ShopByCategory = () => {
   };
   return (
     <div className="py-12 md:py-24 px-3 md:px-12 lg:px-16">
+
+
+
+
         <h2 className="text-center text-2xl md:text-5xl  mb-5 font-semibold">
         Shop Your Favorite Animals
       </h2>
