@@ -29,7 +29,7 @@ const Blogs = () => {
           Question
         </h1>
         <div>
-          <div data-aos="fade-up-right" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
+          <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (1) What is an access token and refresh token? How do they work
               and where should we store them on the client-side?
@@ -51,7 +51,7 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div data-aos="fade-up-left" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
+          <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (2) Compare SQL and NoSQL databases?
             </h3>
@@ -61,7 +61,7 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div data-aos="fade-up-right" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
+          <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (3) What is express js? What is Nest JS?
             </h3>
@@ -71,7 +71,7 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div data-aos="fade-up-left" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
+          <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (4) What is MongoDB aggregate and how does it work?
             </h3>
