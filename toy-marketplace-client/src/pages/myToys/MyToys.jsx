@@ -12,7 +12,7 @@ const MyToys = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys/${user?.email}`)
+    fetch(`https://toy-marketplace-server-steel.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -22,7 +22,7 @@ const MyToys = () => {
   
   const  handleAssending= () => {
     
-    fetch(`http://localhost:5000/myToysAssending/${user?.email}`)
+    fetch(`https://toy-marketplace-server-steel.vercel.app/myToysAssending/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -32,7 +32,7 @@ const MyToys = () => {
 
   const handleDisending = () => {
     
-    fetch(`http://localhost:5000/myToysDssending/${user?.email}`)
+    fetch(`https://toy-marketplace-server-steel.vercel.app/myToysDssending/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -52,7 +52,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myToys/toyRemove/${id}`, {
+        fetch(`https://toy-marketplace-server-steel.vercel.app/myToys/toyRemove/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
