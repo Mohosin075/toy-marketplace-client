@@ -79,6 +79,34 @@ const AddAToys = () => {
             <div className="md:flex justify-between items-center gap-5 w-full">
               <div className="form-control w-full">
                 <label className="label">
+                  <span className="label-text">Seller Name :</span>
+                </label>
+                <input
+                  name="seller"
+                  type="text"
+                  placeholder="Name"
+                  className="input input-bordered w-full"
+                  value={user?.displayName}
+                  disabled
+                />
+              </div>
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text">Email :</span>
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Name"
+                  className="input input-bordered w-full"
+                  value={user?.email}
+                  disabled
+                />
+              </div>
+            </div>
+            <div className="md:flex justify-between items-center gap-5 w-full">
+              <div className="form-control w-full">
+                <label className="label">
                   <span className="label-text">Toy Name :</span>
                 </label>
                 <input

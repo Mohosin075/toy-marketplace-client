@@ -10,7 +10,6 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [active, setActive] = useState(' ');
 
-  console.log(myToys);
 
   useEffect(() => {
     fetch(`http://localhost:5000/myToys/${user?.email}`)
