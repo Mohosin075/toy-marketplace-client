@@ -14,7 +14,7 @@ const ShowCategoryData = ({ cata }) => {
       duration: 800,
       easing: 'ease-in-out',
       delay: 200,
-      once: true, // Animations only occur once
+      once: false, // Animations only occur once
       mirror: true, // Repeating animations on scroll up and down
       anchorPlacement: 'top-bottom', // Specify anchor placement for scroll offset calculation
     });

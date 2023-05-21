@@ -1,6 +1,23 @@
 import useTitle from "../hooks/useTitle";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+import { useEffect } from "react";
 const Blogs = () => {
+  useEffect(() => {
+    AOS.init({
+      offset: 120,
+      duration: 800,
+      easing: 'ease-in-out',
+      delay: 200,
+      once: false, // Animations only occur once
+      mirror: true, // Repeating animations on scroll up and down
+      anchorPlacement: 'top-bottom', // Specify anchor placement for scroll offset calculation
+    });
+
+    return () => {
+      AOS.refresh(); // Refresh AOS on component unmount to remove any remaining animations
+    };
+  }, []);
   useTitle("blogs");
   return (
     <section className="w-9/12 md:w-10/12 mx-auto my-5">
@@ -12,7 +29,7 @@ const Blogs = () => {
           Question
         </h1>
         <div>
-          <div className="mb-10">
+          <div data-aos="fade-up-right" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (1) What is an access token and refresh token? How do they work
               and where should we store them on the client-side?
@@ -34,7 +51,7 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div className="mb-10">
+          <div data-aos="fade-up-left" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (2) Compare SQL and NoSQL databases?
             </h3>
@@ -44,7 +61,7 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div className="mb-10">
+          <div data-aos="fade-up-right" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (3) What is express js? What is Nest JS?
             </h3>
@@ -54,7 +71,7 @@ const Blogs = () => {
               </p>
             </div>
           </div>
-          <div className="mb-10">
+          <div data-aos="fade-up-left" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="mb-10">
             <h3 className="text-xl md:text-2xl font-bold">
               (4) What is MongoDB aggregate and how does it work?
             </h3>
